@@ -100,8 +100,7 @@ app.get('/webhook', (req, res) => {
   }
 });
 
-function search_operation(sender_psid){
-  
+function search_operation(sender_psid){ 
   
   let response = {
     "attachment": {
@@ -180,7 +179,7 @@ function handleMessage(sender_psid, received_message) {
           "elements": [{
             "title": "Is this the right picture?",
             "subtitle": "Tap a button to answer.",
-            "image_url": attachment_url,
+            "image_url": "https://media.giphy.com/media/62aLyf2yVA9IjAoa4Q/giphy.gif",
             "buttons": [
               {
                 "type": "postback",
