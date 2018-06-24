@@ -120,9 +120,10 @@ function handleMessage(sender_psid, received_message) {
                   }
                 ]
             }  
-       // } else if(received_message.text==="Search"){
+        } else if(received_message.text==="Search"){
             
-            //function search_operation(sender_psid);
+            function search_operation(sender_psid);
+            continue;
         } else {
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
