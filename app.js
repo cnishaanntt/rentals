@@ -110,14 +110,22 @@ function handleMessage(sender_psid, received_message) {
       
         if (received_message.text==="hi"){
            response = {
-              "text": `hoi hoi`
+              "text": `hoi hoi`,
+               "quick_replies":[
+                  {
+                    "content_type":"text",
+                    "title":"Search",
+                    "payload":"<POSTBACK_PAYLOAD>",
+                    "image_url":"http://example.com/img/red.png"
+                  }
+                ]
             }  
         } else{
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
             }
         }
-        // test file
+        
        
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
