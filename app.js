@@ -115,8 +115,8 @@ function handleMessage(sender_psid, received_message) {
                   {
                     "content_type":"text",
                     "title":"Search",
-                    "payload":"<POSTBACK_PAYLOAD>",
-                    "image_url":"http://example.com/img/red.png"
+                    "payload":"this is the value",
+                    "image_url":"https://media.giphy.com/media/62aLyf2yVA9IjAoa4Q/giphy.gif"
                   }
                 ]
             }  
