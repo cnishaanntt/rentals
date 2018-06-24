@@ -122,7 +122,7 @@ function handleMessage(sender_psid, received_message) {
             }  
         } else if(received_message.text==="Search"){
             
-            function search_operation(sender_psid);
+            search_operation(sender_psid);
             continue;
         } else {
              response = {
