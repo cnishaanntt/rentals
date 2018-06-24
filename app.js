@@ -100,6 +100,36 @@ app.get('/webhook', (req, res) => {
   }
 });
 
+function search_operation(sender_psid){
+  
+  
+  let response = {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "generic",
+            "elements": [{
+                "title": "Our Menu",
+                "subtitle": "Click buttons to see more",
+                "image_url": "https://media.giphy.com/media/62aLyf2yVA9IjAoa4Q/giphy.gif",
+                "buttons": [{
+                    "type": "postback",
+                    "title": "Coffee",
+                    "payload": "coffee",
+                }, {
+                    "type": "postback",
+                    "title": "Tea",
+                    "payload": "tea",
+                }],
+            }]
+        }
+    }
+} 
+  
+  // Send the response message
+  callSendAPI(sender_psid, response);    
+};
+
 function handleMessage(sender_psid, received_message) {
   let response;
   
@@ -128,11 +158,10 @@ function handleMessage(sender_psid, received_message) {
                 ]
             }  
         } else if(received_message.text==="Search"){
-            response = {
-              "text": `ok search`
-            }
-            //search_operation(sender_psid)
-           // break
+            //response = {
+             // "text": `ok search` }
+            search_operation(sender_psid)
+            continue
         } else {
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
@@ -174,35 +203,7 @@ function handleMessage(sender_psid, received_message) {
   callSendAPI(sender_psid, response);    
 }
 
-function search_operation(sender_psid){
-  
-  
-  let response = {
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "generic",
-            "elements": [{
-                "title": "Our Menu",
-                "subtitle": "Click buttons to see more",
-                "image_url": "https://media.giphy.com/media/62aLyf2yVA9IjAoa4Q/giphy.gif",
-                "buttons": [{
-                    "type": "postback",
-                    "title": "Coffee",
-                    "payload": "coffee",
-                }, {
-                    "type": "postback",
-                    "title": "Tea",
-                    "payload": "tea",
-                }],
-            }]
-        }
-    }
-} 
-  
-  // Send the response message
-  callSendAPI(sender_psid, response);    
-}
+
 
 function handlePostback(sender_psid, received_postback) {
   console.log('ok')
