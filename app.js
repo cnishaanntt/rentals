@@ -160,7 +160,7 @@ function handleMessage(sender_psid, received_message) {
             //response = {
              // "text": `ok search` }
             search_operation(sender_psid)
-            break
+            continue
             
         } else {
              response = {
