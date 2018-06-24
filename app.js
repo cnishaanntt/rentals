@@ -124,9 +124,9 @@ function search_operation(sender_psid){
         }
     }
 } 
-  return response;
+  //return response;
   // Send the response message
-  //callSendAPI(sender_psid, response);    
+  callSendAPI(sender_psid, response);    
 };
 
 function handleMessage(sender_psid, received_message) {
@@ -160,6 +160,7 @@ function handleMessage(sender_psid, received_message) {
             //response = {
              // "text": `ok search` }
             search_operation(sender_psid)
+            break
             
         } else {
              response = {
