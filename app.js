@@ -129,16 +129,10 @@ function search_operation(sender_psid){
   callSendAPI(sender_psid, response);    
 };
 
-function handleMessage(sender_psid, received_message) {
-  let response;
-  
-  // Checks if the message contains text
-  if (received_message.text) {    
-    // Create the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
-      
-        if (received_message.text==="hi"){
-           response = {
+
+
+function hi(sender_psid){ 
+   let response = {
               "text": `hoi hoi`,
                "quick_replies":[
                   {
@@ -155,21 +149,47 @@ function handleMessage(sender_psid, received_message) {
                        "content_type":"user_email"
                    }
                 ]
-            }  
+            }
+     callSendAPI(sender_psid, response); 
+    
+}
+
+
+function other_text(sender_psid, received_message){ 
+   let response = {
+              "text": `You sent the message: "${received_message.text}". Now send me an attachment!`;
+            }
+     callSendAPI(sender_psid, response); 
+    
+}
+
+
+
+function handleMessage(sender_psid, received_message) {
+  let response;
+  
+  // Checks if the message contains text
+  if (received_message.text) {    
+    // Create the payload for a basic text message, which
+    // will be added to the body of our request to the Send API
+      
+        if (received_message.text==="hi"){
+            hi(sender_psid)
+            //continue
+           
         } else if(received_message.text==="Search"){
             //response = {
              // "text": `ok search` }
             search_operation(sender_psid)
-            continue
+            //continue
             
         } else {
-             response = {
-              "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
-            }
+            other_text(sender_psid, received_message)
+            //continue
         }
         
        
-  } else if (received_message.attachments) {
+  } /*else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
     response = {
@@ -197,13 +217,11 @@ function handleMessage(sender_psid, received_message) {
         }
       }
     }
-  } 
+  } */
   
   // Send the response message
-  callSendAPI(sender_psid, response);    
+  //callSendAPI(sender_psid, response);    
 }
-
-
 
 function handlePostback(sender_psid, received_postback) {
   console.log('ok')
