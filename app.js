@@ -179,7 +179,7 @@ function handleMessage(sender_psid, received_message) {
           "elements": [{
             "title": "Is this the right picture?",
             "subtitle": "Tap a button to answer.",
-            "image_url": "https://media.giphy.com/media/62aLyf2yVA9IjAoa4Q/giphy.gif",
+            "image_url": attachment_url
             "buttons": [
               {
                 "type": "postback",
