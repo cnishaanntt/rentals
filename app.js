@@ -125,7 +125,7 @@ function handleMessage(sender_psid, received_message) {
               //"text": `search`
            // }
             search_operation(sender_psid)
-            continue
+            break
         } else {
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
