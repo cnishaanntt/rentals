@@ -120,7 +120,7 @@ function handleMessage(sender_psid, received_message) {
                   }
                 ]
             }  
-        } else if(received_message==="search"){
+        } else if(received_message==="Search"){
             
             function search_operation(sender_psid, received_message);
         } else {
