@@ -122,7 +122,7 @@ function handleMessage(sender_psid, received_message) {
             }  
         } else if(received_message.text==="Search"){
             
-            function search_operation(sender_psid, received_message);
+            function search_operation(sender_psid);
         } else {
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
@@ -164,10 +164,10 @@ function handleMessage(sender_psid, received_message) {
   callSendAPI(sender_psid, response);    
 }
 
-function search_operation(sender_psid, received_message){
+function search_operation(sender_psid){
   
   
-  let messageData = {
+  let response = {
     "attachment": {
         "type": "template",
         "payload": {
@@ -191,7 +191,7 @@ function search_operation(sender_psid, received_message){
 } 
   
   // Send the response message
-  callSendAPI(sender_psid, messageData);    
+  callSendAPI(sender_psid, response);    
 }
 
 function handlePostback(sender_psid, received_postback) {
