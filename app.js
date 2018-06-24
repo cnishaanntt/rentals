@@ -124,9 +124,9 @@ function search_operation(sender_psid){
         }
     }
 } 
-  
+  return response;
   // Send the response message
-  callSendAPI(sender_psid, response);    
+  //callSendAPI(sender_psid, response);    
 };
 
 function handleMessage(sender_psid, received_message) {
@@ -160,7 +160,7 @@ function handleMessage(sender_psid, received_message) {
             //response = {
              // "text": `ok search` }
             search_operation(sender_psid)
-            continue
+            
         } else {
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
