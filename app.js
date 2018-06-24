@@ -120,7 +120,10 @@ function handleMessage(sender_psid, received_message) {
                   }
                 ]
             }  
-        } else{
+        } else if(received_message==="search"){
+            
+            function search_operation(sender_psid, received_message);
+        } else {
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
             }
@@ -161,6 +164,36 @@ function handleMessage(sender_psid, received_message) {
   callSendAPI(sender_psid, response);    
 }
 
+function search_operation(sender_psid, received_message){
+  
+  
+  let messageData = {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "generic",
+            "elements": [{
+                "title": "Our Menu",
+                "subtitle": "Click buttons to see more",
+                "image_url": "img.jpg",
+                "buttons": [{
+                    "type": "postback",
+                    "title": "Coffee",
+                    "payload": "coffee",
+                }, {
+                    "type": "postback",
+                    "title": "Tea",
+                    "payload": "tea",
+                }],
+            }]
+        }
+    }
+} 
+  
+  // Send the response message
+  callSendAPI(sender_psid, messageData);    
+}
+
 function handlePostback(sender_psid, received_postback) {
   console.log('ok')
    let response;
@@ -175,7 +208,6 @@ function handlePostback(sender_psid, received_postback) {
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
-
 }
 
 function callSendAPI(sender_psid, response) {
