@@ -117,15 +117,22 @@ function handleMessage(sender_psid, received_message) {
                     "title":"Search",
                     "payload":"this is the value",
                     "image_url":"https://media.giphy.com/media/62aLyf2yVA9IjAoa4Q/giphy.gif"
-                  }
+                  },
+                   {
+                       "content_type":"location"
+                   },{
+                      "content_type":"user_phone_number"
+                   },{
+                       "content_type":"user_email"
+                   }
                 ]
             }  
         } else if(received_message.text==="Search"){
-            //response = {
-              //"text": `search`
-           // }
-            search_operation(sender_psid)
-            break
+            response = {
+              "text": `ok search`
+            }
+            //search_operation(sender_psid)
+           // break
         } else {
              response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
