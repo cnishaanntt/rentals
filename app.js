@@ -100,8 +100,7 @@ app.get('/webhook', (req, res) => {
   }
 });
 
-function search_operation(sender_psid){ 
-  
+function search_operation(sender_psid){   
   let response = {
     "attachment": {
         "type": "template",
@@ -132,6 +131,7 @@ function search_operation(sender_psid){
 
 
 function hi(sender_psid){ 
+    console.log("Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi Received hi ")
    let response = {
               "text": `hoi hoi`,
                "quick_replies":[
@@ -150,7 +150,7 @@ function hi(sender_psid){
                    }
                 ]
             }
-     callSendAPI(sender_psid, response); 
+   callSendAPI(sender_psid, response); 
     
 }
 
@@ -159,7 +159,7 @@ function other_text(sender_psid, received_message){
    let response = {
               "text": `You sent the message: "${received_message.text}". Now send me an attachment!`;
             }
-     callSendAPI(sender_psid, response); 
+   callSendAPI(sender_psid, response); 
     
 }
 
@@ -175,17 +175,17 @@ function handleMessage(sender_psid, received_message) {
       
         if (received_message.text==="hi"){
             hi(sender_psid)
-            //continue
+            continue
            
         } else if(received_message.text==="Search"){
             //response = {
              // "text": `ok search` }
             search_operation(sender_psid)
-            //continue
+            continue
             
         } else {
             other_text(sender_psid, received_message)
-            //continue
+            continue
         }
         
        
